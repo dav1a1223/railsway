@@ -1,0 +1,5 @@
+vendor/*
+spec/javascripts/*
+app/assets/javascripts/**/*.coffee
+app/assets/javascripts/**/*.cjsx
+app/assets/javascripts/**/*-build.js

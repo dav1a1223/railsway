@@ -1,0 +1,22 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      "strict": 0,
+      "new-cap": [2, {"capIsNewExceptions": ["FluxMixin", "StoreWatchMixin"]}]
+    },
+    "globals": {
+      "$": false,
+      "FB": false,
+      "Fluxxor": false,
+      "React": false,
+      "ReactDOM": false,
+      "SortableMixin": false,
+      "analytics": false,
+      "classNames": false,
+      "moment": false
+    }
+}

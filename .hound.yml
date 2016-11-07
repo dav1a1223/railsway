@@ -1,0 +1,11 @@
+coffeescript:
+  config_file: .coffeescript-style.json
+eslint:
+  enabled: true
+  config_file: .eslintrc.json
+javascript:
+  enabled: false
+ruby:
+  config_file: .ruby-style.yml
+scss:
+  config_file: .scss-style.yml

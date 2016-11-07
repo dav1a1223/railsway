@@ -27,7 +27,7 @@ gem 'pundit'
 group :development do
   gem 'better_errors'
   gem 'foreman'
-  gem 'hub', :require=>nil
+  gem 'hub', require: nil
   gem 'rails_layout'
   gem 'spring-commands-rspec'
 end

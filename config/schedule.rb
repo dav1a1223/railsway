@@ -21,5 +21,6 @@
 set :output, "#{path}/log/cron_log.log"
 
 every 2.minutes do
-  runner "Article.rubyflow", environment: 'development'
+  runner 'Article.rubyflow', environment: 'development'
+  runner 'Article.sitepoint_ruby', environment: 'development'
 end

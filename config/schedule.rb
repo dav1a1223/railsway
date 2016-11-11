@@ -20,7 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 set :output, "#{path}/log/cron_log.log"
 
-every 2.minutes do
+every 3.hours do
   runner 'Article.rubyflow', environment: 'development'
   runner 'Article.sitepoint_ruby', environment: 'development'
+  runner 'Article.medium_ruby_on_rails', environment: 'development'
+  runner 'Article.rubychina_excellent', environment: 'development'
 end

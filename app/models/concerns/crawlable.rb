@@ -34,6 +34,35 @@ module Crawlable
       puts "#{Time.now} + SitePoint"
     end
 
+    def medium_ruby_on_rails
+      medium = Nokogiri::HTML(open('https://medium.com/tag/ruby-on-rails/latest'))
+      medium.css('div[@class="postArticle postArticle--short js-postArticle js-trackedPost"]').each do |info|
+        article = Article.new
+        article.title = info.children[1].children[0].children[0].children[0].children[1].children[0].children[0].children[0].text
+        break if repeated? article.title
+        article.from = 'Medium Tags - Ruby on Rails'
+        article.description = info.children[1].children[0].children[0].children[0].children[1].children[0].children[1].children[0].text
+        article.url = info.children[1].children[0].attributes['href'].value
+        article.author = info.children[0].children[0].children[1].children[0].children[0].text
+        article.save!
+      end
+      puts "#{Time.now} + Medium Tags - Ruby on Rails"
+    end
+
+    def rubychina_excellent
+      rubychina = Nokogiri::HTML(open('https://ruby-china.org/topics/excellent'))
+      rubychina.css('div[@class^="topic media topic-"]').each do |info|
+        article = Article.new
+        article.title = info.children[3].children[1].children[1]['title']
+        break if repeated? article.title
+        article.from = 'RubyChina excellent topic'
+        article.url = 'https://ruby-china.org' + info.children[3].children[1].children[1]['href']
+        article.author = info.children[3].children[3].children[3].children[0].text
+        article.save!
+      end
+      puts "#{Time.now} + RubyChina excellent"
+    end
+
     def repeated?(article_title)
       Article.exists?(title: article_title)
     end

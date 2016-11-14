@@ -13,6 +13,7 @@ module Crawlable
           article.description = info.children[3].children.text.strip
           article.url = 'http://www.rubyflow.com' + info.children[1].children[0].attributes['href']
           article.author = info.children[5].children[0].children[2].text.strip
+          article.category = Category.find_by(name: "Ruby")
           article.save!
         end
       end
@@ -29,6 +30,7 @@ module Crawlable
         article.description = info.children[1].children[2].children[0]&.text
         article.url = info.attributes['href']
         article.author = info.children[1].children[0].children[1].children[0].text.split(',')[0]
+        article.category = Category.find_by(name: "Ruby")
         article.save!
       end
       puts "#{Time.now} + SitePoint"
@@ -44,6 +46,7 @@ module Crawlable
         article.description = info.children[1].children[0].children[0].children[0].children[1].children[0].children[1].children[0].text
         article.url = info.children[1].children[0].attributes['href'].value
         article.author = info.children[0].children[0].children[1].children[0].children[0].text
+        article.category = Category.find_by(name: "Ruby")
         article.save!
       end
       puts "#{Time.now} + Medium Tags - Ruby on Rails"
@@ -58,6 +61,7 @@ module Crawlable
         article.from = 'RubyChina excellent topic'
         article.url = 'https://ruby-china.org' + info.children[3].children[1].children[1]['href']
         article.author = info.children[3].children[3].children[3].children[0].text
+        article.category = Category.find_by(name: "Ruby")
         article.save!
       end
       puts "#{Time.now} + RubyChina excellent"

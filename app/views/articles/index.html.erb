@@ -1,11 +1,12 @@
-<h1>Learning Rails in Railsway</h1>
 <div class="list-body">
   <% @articles.each do |article| %>
+    <% if day_change?(article.created_at) %>
+      <div class="show-day"><%= show_day(article.created_at) %></div>
+    <% end %>
     <div class="article-block">
       <div class="article-name"><%= link_to article.title, article.url, target: "_blank" %></div>
       <div class="article-author"><%= article.author %></div>
       <div class="article-desc"><%= article.description %></div>
     </div>
-    <br>
   <% end %>
 </div>

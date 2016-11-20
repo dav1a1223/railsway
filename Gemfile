@@ -9,8 +9,14 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+# crawler
 gem 'nokogiri'
+# runtine crawl
 gem 'whenever', require: false
+# search
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'progress_bar'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
